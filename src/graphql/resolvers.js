@@ -2,7 +2,8 @@ import User from '../models/User';
 
 export const resolvers = {
     Query: {
-        getUsers: async () => await User.find()
+        getUsers: async () => await User.find(),
+        getUser: async (_, { id }) => await User.findById(id)
     },
     Mutation: {
         createUser: async (_, { input }) => {
